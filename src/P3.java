@@ -8,16 +8,20 @@ public class P3 {
 
 	public static void main(String[] args) {
 		long cur = num;
-		for (int i = 2; i <= cur; i++) {
+		while (cur % 2 == 0) {
+			cur /= 2;
+			System.out.println("pf:" + 2 + ", cur:" + cur);
+		}
+		// potential factor
+		for (int i = 3; i * i <= cur; i += 2) {
 			//System.out.print(i + ",");
 			while (cur % i == 0) {
 				cur /= i;
 				System.out.println("pf:" + i + ", cur:" + cur);
 			}
-			if (cur == 1) {
-				System.out.println("top pf:" + i);
-				break;
-			}
+		}
+		if (cur > 1) {
+			System.out.println("top pf: " + cur);
 		}
 	}
 }
